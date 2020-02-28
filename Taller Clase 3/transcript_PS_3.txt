@@ -1,0 +1,161 @@
+﻿**********************
+Inicio de la transcripción de Windows PowerShell
+Hora de inicio: 20200228175820
+Nombre de usuario: LAPTOP-2FEDNSRE\beyck
+Usuario RunAs: LAPTOP-2FEDNSRE\beyck
+Nombre de la configuración: 
+Máquina: LAPTOP-2FEDNSRE (Microsoft Windows NT 10.0.18362.0)
+Aplicación host: C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Id. de proceso: 17496
+PSVersion: 5.1.18362.628
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.628
+BuildVersion: 10.0.18362.628
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+La transcripción ha comenzado. El archivo de salida es C:\Users\beyck\Documents\transcript_PS_3.txt
+PS C:\Windows\system32> new-Item archivo1.txt -Value "Beycker"
+
+
+    Directorio: C:\Windows\system32
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----     28/02/2020  6:00 p. m.              7 archivo1.txt
+
+
+PS C:\Windows\system32> new-Item archivo2.txt -Value "Alexis"
+
+
+    Directorio: C:\Windows\system32
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----     28/02/2020  6:01 p. m.              6 archivo2.txt
+
+
+PS C:\Windows\system32> diff -Ref (Get-Content archivo1.txt) -diff (Get-Content archivo2.txt)
+
+InputObject SideIndicator
+----------- -------------
+Alexis      =>
+Beycker     <=
+
+
+PS C:\Windows\system32> get-service | export-csv servicios.csv | out-file
+>> ErrorTerminación(Out-File): "No se puede procesar el argumento porque el valor del argumento "path" es NULL. Cambie el valor del argumento "path" a un valor no nulo."
+out-file : No se puede procesar el argumento porque el valor del argumento "path" es NULL. Cambie el valor del 
+argumento "path" a un valor no nulo.
+En línea: 1 Carácter: 42
++ get-service | export-csv servicios.csv | out-file
++                                          ~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Out-File], PSArgumentNullException
+    + FullyQualifiedErrorId : ArgumentNull,Microsoft.PowerShell.Commands.OutFileCommand
+out-file : No se puede procesar el argumento porque el valor del argumento "path" es NULL. Cambie el valor del argumento "path" a un
+valor no nulo.
+En línea: 1 Carácter: 42
++ get-service | export-csv servicios.csv | out-file
++                                          ~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Out-File], PSArgumentNullException
+    + FullyQualifiedErrorId : ArgumentNull,Microsoft.PowerShell.Commands.OutFileCommand
+
+PS C:\Windows\system32> get-process | export-csv procesos.csv -Delimiter ';'
+PS C:\Windows\system32> Export-Csv -Path archivo1.csv -NoClobber -Confirm
+Confirmar
+¿Está seguro de que desea realizar esta acción?
+Se está realizando la operación "Export-Csv" en el destino "archivo1.csv".
+&Sí  Sí a t&odo  &No  No a &todo  S&uspender
+S
+PS C:\Windows\system32> (Get-Culture).TextInfo.ListSeparator
+;
+PS C:\Windows\system32> Export-Csv -Path archivo2.csv -UseCulture
+PS C:\Windows\system32> (Get-Culture).TextInfo.ListSeparator
+;
+PS C:\Windows\system32> Export-Csv -Path archivo1.csv -NoClobber -Confirm
+Confirmar
+¿Está seguro de que desea realizar esta acción?
+Se está realizando la operación "Export-Csv" en el destino "archivo1.csv".
+&Sí  Sí a t&odo  &No  No a &todo  S&uspender
+S
+>> ErrorTerminación(Export-Csv): "El archivo 'C:\Windows\system32\archivo1.csv' ya existe."
+Export-Csv : El archivo 'C:\Windows\system32\archivo1.csv' ya existe.
+En línea: 1 Carácter: 1
++ Export-Csv -Path archivo1.csv -NoClobber -Confirm
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\Windows\system32\archivo1.csv:String) [Export-Csv], IOException
+    + FullyQualifiedErrorId : NoClobber,Microsoft.PowerShell.Commands.ExportCsvCommand
+Export-Csv : El archivo 'C:\Windows\system32\archivo1.csv' ya existe.
+En línea: 1 Carácter: 1
++ Export-Csv -Path archivo1.csv -NoClobber -Confirm
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\Windows\system32\archivo1.csv:String) [Export-Csv], IOException
+    + FullyQualifiedErrorId : NoClobber,Microsoft.PowerShell.Commands.ExportCsvCommand
+
+PS C:\Windows\system32> get-process | export-csv procesos.csv -Delimiter ';'
+PS C:\Windows\system32> (Get-Culture).TextInfo.ListSeparator
+;
+PS C:\Windows\system32> (Get-Culture).TextInfo.ListSeparator
+;
+PS C:\Windows\system32> Export-Csv -Path archivo2.csv -UseCulture
+PS C:\Windows\system32> Get-Random
+765451893
+PS C:\Windows\system32> Get-Date
+
+viernes, 28 de febrero de 2020 6:27:23 p. m.
+
+
+PS C:\Windows\system32> Get-Date|select-object -property ObjetoResultado
+
+ObjetoResultado
+---------------
+
+
+
+PS C:\Windows\system32> Get-Date|select-object -property DayOfWeek
+
+DayOfWeek
+---------
+   Friday
+
+
+PS C:\Windows\system32> Get-HotFix
+
+Source        Description      HotFixID      InstalledBy          InstalledOn
+------        -----------      --------      -----------          -----------
+LAPTOP-2FE... Update           KB4534132     NT AUTHORITY\SYSTEM  13/02/2020 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4497727                          1/04/2019 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4506933     NT AUTHORITY\SYSTEM  22/09/2019 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4516115     NT AUTHORITY\SYSTEM  1/02/2020 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4524244     NT AUTHORITY\SYSTEM  15/02/2020 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4528759     NT AUTHORITY\SYSTEM  31/01/2020 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4537759     NT AUTHORITY\SYSTEM  13/02/2020 12:00:00 a. m.
+LAPTOP-2FE... Security Update  KB4538674     NT AUTHORITY\SYSTEM  12/02/2020 12:00:00 a. m.
+LAPTOP-2FE... Update           KB4532693     NT AUTHORITY\SYSTEM  13/02/2020 12:00:00 a. m.
+
+
+PS C:\Windows\system32> Get-HotFix|Sort-Object -Property InstalledOn|Select-Object -Property InstalledOn,InstalledBy,HotFixID
+
+InstalledOn               InstalledBy         HotFixID
+-----------               -----------         --------
+1/04/2019 12:00:00 a. m.                      KB4497727
+22/09/2019 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4506933
+31/01/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4528759
+1/02/2020 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4516115
+12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4538674
+13/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4534132
+13/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4537759
+13/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4532693
+15/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524244
+
+
+PS C:\Windows\system32> Get-HotFix|Sort-Object -Property Description|Select-Object -Property Description,HotFixID,InstalledOn|out-file index.html
+PS C:\Windows\system32> Get-EventLog -LogName System -Newest 50|Sort-Object -Property Index | Sort-Object -Property Time|Select-Object -Property Index,Time,Source | Out-File entradas.txt
+**********************
+Fin de la transcripción de Windows PowerShell
+Hora de finalización: 20200228184852
+**********************
